@@ -9,15 +9,16 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 import { IoLogOutOutline } from "react-icons/io5";
 import "../index.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 
 const Navbar = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navItems = [
-    {icon:<BiHome size={22} className="text-primary"/>, name:"Home"},
-    {icon:<CiUser size={22} className="text-primary"/>, name:"My Profile"},
-    {icon:<FiCreditCard size={22} className="text-primary"/>, name:"My Orders"},
+    {icon:<BiHome size={22} className="text-primary"/>, name:"Home",action: () => navigate("/")},
+    {icon:<CiUser size={22} className="text-primary"/>, name:"My Profile", action: () => navigate("/account")},
+    {icon:<FiCreditCard size={22} className="text-primary"/>, name:"My Orders", action: () => navigate("/cart")},
     {icon:<HiOutlineLocationMarker size={22} className="text-primary"/>, name:"My Address"},
     {icon:<IoLogOutOutline size={22} className="text-primary"/>, name:"Logout"}
   ];
@@ -34,14 +35,14 @@ const Navbar = () => {
           } block md:hidden z-20`}
         >
             <div className="p-6 ">
-              <a href="#">
+              <Link to="/">
                 <img src={Logo} className="h-12" />
-                </a>
+                </Link>
             </div>
         {/* navigation bar */}
         <div>
             {navItems.map((item, index) => (
-                <div key={index} className="flex flex-col ">
+                <div key={index}  onClick={item.action} className="flex flex-col ">
                     <div className="flex items-center gap-4 p-4 hover:bg-primary/40 transition-colors duration-300 cursor-pointer">
                     {item.icon}
                     <span className="text-text">{item.name}</span>

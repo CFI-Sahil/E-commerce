@@ -32,13 +32,13 @@ const Signin = () => {
     <>
       <div className="bg-secondary flex flex-col md:flex-row items-center justify-center h-dvh font-primary">
           {/* image section for mobile */}
-            <div className="flex flex-col md:flex-row md:hidden">
+            {/* <div className="flex flex-col md:flex-row md:hidden">
             <img
               src={LadyBag}
               alt="login image"
               className="w-[16vh] h-[20vh] rounded-md mb-5"
             />
-          </div>
+          </div> */}
         <div className="flex flex-col md:flex-row w-[46vh] lg:w-[110vh] h-[47dvh] md:h-auto overflow-hidden shadow-lg bg-white rounded-2xl p-9.5 md:p-0">
 
           {/* image section for desktop */}

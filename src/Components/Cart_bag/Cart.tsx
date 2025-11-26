@@ -9,7 +9,7 @@ const Cart = () => {
             <img
               src={EmptyBag}
               alt=""
-              className="w-50"
+              className="w-36"
             />
           </div>
           <Footer />

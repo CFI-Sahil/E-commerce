@@ -137,13 +137,13 @@ const Blockbuster = () => {
                 }
               }}
             >
-              <div className="w-full h-[280px] md:h-[250px] lg:h-[260px] xl:h-[300px] 2xl:h-[350px] rounded-md shadow flex flex-col justify-center pt-2 pb-3.5 px-1.5 border border-border bg-white">
+              <div className="w-full h-[250px] md:h-[250px] lg:h-[260px] xl:h-[300px] 2xl:h-[350px] rounded-md shadow flex flex-col justify-center pt-2 pb-3.5 px-1.5 border border-border bg-white">
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="object-cover pointer-events-none h-[170px] sm:h-[180px] md:h-[200px] lg:h-auto xl:h-[250px] 2xl:h-[255px]"
+                  className="object-cover pointer-events-none h-40 sm:h-[180px] md:h-[200px] lg:h-auto xl:h-[250px] 2xl:h-[255px]"
                 />
-                <p className="mt-2 text-[12px] lg:text-sm">{item.name}</p>
+                <p className="mt-2 text-[12px] lg:text-sm truncate">{item.name}</p>
                 <p className="text-black">{item.price}</p>
                 <div className="flex gap-2 items-center">
                   <p className="text-offer text-[12px] font-medium">

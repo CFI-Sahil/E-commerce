@@ -11,7 +11,7 @@ export interface CategoryItem {
 }
 
 export const PerfumeData: CategoryItem[] = [
-  { id: 1, name: "Geometric Bottle Gold Cap P...", image: Perfume, price:"₹600", offer:"20% Off", line:"₹800",
+  { id: 1, name: "Geometric Bottle Gold Cap Perfume", image: Perfume, price:"₹600", offer:"20% Off", line:"₹800",
     about: [
       "A premium perfume in a sleek purple geometric bottle.",
       "The gold cap adds a luxurious and elegant contrast.",
@@ -22,7 +22,7 @@ export const PerfumeData: CategoryItem[] = [
     ],
     style: "Display it on your vanity for a premium purple-gold aesthetic."
    },
-  { id: 2, name: "Geometric Bottle Gold Cap P...", image: Perfume, price:"₹600", offer:"20% Off", line:"₹800",
+  { id: 2, name: "Geometric Bottle Gold Cap Perfume", image: Perfume, price:"₹600", offer:"20% Off", line:"₹800",
     about: [
       "A premium perfume in a sleek purple geometric bottle.",
       "The gold cap adds a luxurious and elegant contrast.",
@@ -33,7 +33,7 @@ export const PerfumeData: CategoryItem[] = [
     ],
     style: "Display it on your vanity for a premium purple-gold aesthetic."
    },
-  { id: 3, name: "Geometric Bottle Gold Cap P...", image: Perfume, price:"₹600", offer:"20% Off", line:"₹800",
+  { id: 3, name: "Geometric Bottle Gold Cap Perfume", image: Perfume, price:"₹600", offer:"20% Off", line:"₹800",
     about: [
       "A premium perfume in a sleek purple geometric bottle.",
       "The gold cap adds a luxurious and elegant contrast.",
@@ -44,7 +44,7 @@ export const PerfumeData: CategoryItem[] = [
     ],
     style: "Display it on your vanity for a premium purple-gold aesthetic."
    },
-  { id: 4, name: "Geometric Bottle Gold Cap P...", image: Perfume, price:"₹600", offer:"20% Off", line:"₹800",
+  { id: 4, name: "Geometric Bottle Gold Cap Perfume", image: Perfume, price:"₹600", offer:"20% Off", line:"₹800",
     about: [
       "A premium perfume in a sleek purple geometric bottle.",
       "The gold cap adds a luxurious and elegant contrast.",
@@ -55,7 +55,7 @@ export const PerfumeData: CategoryItem[] = [
     ],
     style: "Display it on your vanity for a premium purple-gold aesthetic."
    },
-  { id: 5, name: "Geometric Bottle Gold Cap P...", image: Perfume, price:"₹600", offer:"20% Off", line:"₹800",
+  { id: 5, name: "Geometric Bottle Gold Cap Perfume", image: Perfume, price:"₹600", offer:"20% Off", line:"₹800",
     about: [
       "A premium perfume in a sleek purple geometric bottle.",
       "The gold cap adds a luxurious and elegant contrast.",
@@ -66,7 +66,7 @@ export const PerfumeData: CategoryItem[] = [
     ],
     style: "Display it on your vanity for a premium purple-gold aesthetic."
    },
-  { id: 6, name: "Geometric Bottle Gold Cap P...", image: Perfume, price:"₹600", offer:"20% Off", line:"₹800",
+  { id: 6, name: "Geometric Bottle Gold Cap Perfume", image: Perfume, price:"₹600", offer:"20% Off", line:"₹800",
     about: [
       "A premium perfume in a sleek purple geometric bottle.",
       "The gold cap adds a luxurious and elegant contrast.",
@@ -77,7 +77,7 @@ export const PerfumeData: CategoryItem[] = [
     ],
     style: "Display it on your vanity for a premium purple-gold aesthetic."
    },
-  { id: 7, name: "Geometric Bottle Gold Cap P...", image: Perfume, price:"₹600", offer:"20% Off", line:"₹800",
+  { id: 7, name: "Geometric Bottle Gold Cap Perfume", image: Perfume, price:"₹600", offer:"20% Off", line:"₹800",
     about: [
       "A premium perfume in a sleek purple geometric bottle.",
       "The gold cap adds a luxurious and elegant contrast.",
@@ -88,7 +88,7 @@ export const PerfumeData: CategoryItem[] = [
     ],
     style: "Display it on your vanity for a premium purple-gold aesthetic."
    },
-  { id: 8, name: "Geometric Bottle Gold Cap P...", image: Perfume, price:"₹600", offer:"20% Off", line:"₹800",
+  { id: 8, name: "Geometric Bottle Gold Cap Perfume", image: Perfume, price:"₹600", offer:"20% Off", line:"₹800",
     about: [
       "A premium perfume in a sleek purple geometric bottle.",
       "The gold cap adds a luxurious and elegant contrast.",

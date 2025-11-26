@@ -319,7 +319,9 @@ const ViewAll: React.FC = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <div className="mb-10 md:mb-0">
+        <Footer />
+      </div>
     </>
   );
 };

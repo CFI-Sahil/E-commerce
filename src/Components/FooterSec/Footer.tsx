@@ -60,7 +60,7 @@ const Footer = () => {
                 </div>
               </div>
               {/* section row 3 */}
-              <div className='flex flex-col-reverse ml-44 md:ml-0 mt-2 md:mt-0 absolute md:static md:grid md:grid-cols-4 lg:grid-cols-5 gap-x-5 gap-y-5 text-white w-full justify-self-start'>
+              <div className='flex flex-col-reverse ml-42 md:ml-0 mt-2 md:mt-0 absolute md:static md:grid md:grid-cols-4 lg:grid-cols-5 gap-x-5 gap-y-5 text-white w-full justify-self-start'>
                 <div className="text-[12px] lg:text-sm font-medium flex items-center h-10 gap-3 not-first:gap-4">
                     <img src={Mail} alt="" className="h-5 2xl:h-7" />
                   <a href="">support@ecmacom.com</a>
@@ -69,12 +69,12 @@ const Footer = () => {
                     <img src={Call} alt="" className="h-5 2xl:h-7" />
                   <a href="">+91-900xxxxx01</a>
                 </div>
-                <div className="text-[12px] lg:text-sm font-medium flex items-center h-10 gap-3 col-span-2 w-55 md:w-auto">
+                <div className="text-[12px] lg:text-sm font-medium flex items-center h-10 gap-3 col-span-2 w-53 md:w-auto">
                     <img src={Location} alt="" className="h-6 2xl:h-7" />
-                  <a href="">Pires House, Sahar Village, Vile Parle (East), Mumbai - 400099</a>
+                  <a href="">Samrat Nagar, Sahar Village, Vile Parle (East), Mumbai - 400099</a>
                 </div>
                 <div className="text-[12px] lg:text-sm font-medium absolute md:static -mb-42 md:mb-0 mt-0 2xl:mt-2 -ml-20 md:ml-0">
-                  <a href="">© 2025, OrnaOra owned by Business Bee Enterprises.</a>
+                  <a href="">© 2025, EcmaCom owned by Bee Enterprises.</a>
                 </div>
               </div>
               </div>
