@@ -1,7 +1,7 @@
 import Jewellery from "../../assets/Jhoomka_1.png";
 import Purse from "../../assets/purse.png";
-import Perfume from "../../assets/perfume.png";
-import Watch from "../../assets/watch.png";
+import Perfume from "../../assets/Perfume.png";
+import Watch from "../../assets/Watch.png";
 import Store199 from "../../assets/299_Store12.png";
 import { Link } from "react-router-dom";
 const Category = () => {
