@@ -1,0 +1,38 @@
+.slick-slide > div {
+  display: flex !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+.slick-track {
+  display: flex !important;
+  gap: 0 !important;
+}
+
+.slick-slide {
+  width: auto !important;
+}
+
+.scroll-container {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  transition: all 0.3s ease-in-out;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/* Optional: makes drag feel smoother */
+.scroll-container {
+  scroll-snap-type: x mandatory;
+}
+
+.scroll-container > div {
+  scroll-snap-align: start;
+}
+

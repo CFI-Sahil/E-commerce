@@ -1,0 +1,14 @@
+/* Testi.css - minimal helpers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* dragging cursor */
+.testimonials-section .dragging { cursor: grabbing; }
+
+/* ensure each card is block and doesn't shrink unexpectedly */
+.testimonials-card { box-sizing: border-box; }
