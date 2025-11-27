@@ -172,7 +172,7 @@ const Testimonials: React.FC = () => {
 
   return (
     <section className="testimonials-section w-full font-primary mt-10">
-      <div className="w-full px-4 md:px-10 xl:px-20">
+      <div className="w-full px-3 md:px-10 xl:px-20">
         <div className="max-w-[1800px] w-full block overflow-visible select-none">
           <div className="text-center mb-6">
             <h2 className="text-xl md:text-2xl font-bold text-text">
@@ -183,7 +183,7 @@ const Testimonials: React.FC = () => {
 
           <div
             ref={containerRef}
-            className="flex gap-6 overflow-x-scroll scroll-smooth no-scrollbar px-2 py-2 w-full">
+            className="testimonials-container flex gap-6 overflow-x-scroll scroll-smooth no-scrollbar px-2 py-2 w-full">
             {testimonialsDataOfPeople.map((item: Testimonial, idx: number) => (
               <article
                 key={item.id}

@@ -8,7 +8,16 @@
 }
 
 /* dragging cursor */
-.testimonials-section .dragging { cursor: grabbing; }
+.testimonials-section .dragging { cursor: grab; }
 
 /* ensure each card is block and doesn't shrink unexpectedly */
 .testimonials-card { box-sizing: border-box; }
+
+.testimonials-container {
+  scroll-snap-type: x mandatory;
+}
+
+.testimonials-card {
+  scroll-snap-align: center;
+}
+
