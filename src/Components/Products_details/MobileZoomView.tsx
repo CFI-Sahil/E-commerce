@@ -102,7 +102,7 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
         className="rounded-md overflow-hidden bg-white"
         style={{
           width: "100%",
-          height: "46%",
+          height: "45%",
           touchAction: "none",
           position: "relative",
         }}
