@@ -5,7 +5,7 @@ import Jewellery from "../../assets/3.jpg";
 import Jewellery2 from "../../assets/4.jpg";
 import Perfume from "../../assets/Top-perfume.jpg";
 import Perfume2 from "../../assets/P5.jpg";
-import Perfume3 from "../../assets/p6.jpg";
+import Perfume3 from "../../assets/P6.jpg";
 export interface CategoryItem {
   id: number;
   name: string;
