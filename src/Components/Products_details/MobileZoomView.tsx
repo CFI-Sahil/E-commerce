@@ -42,7 +42,9 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
         src={img}
         alt="zoom"
         className="max-w-full max-h-full rounded-2xl border- border-border transition-transform duration-100 px-5"
-        style={{ transform: `scale(${scale})` }}
+        style={{ transform: `scale(${scale})`,
+            touchAction: "none",
+         }}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
       />
