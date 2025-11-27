@@ -1,6 +1,6 @@
 import Logo from "../assets/Logo.png";
 import { IoIosSearch } from "react-icons/io";
-import { CiUser } from "react-icons/ci";
+import { HiOutlineUser } from "react-icons/hi2";
 import { PiHandbag } from "react-icons/pi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { BiHome } from "react-icons/bi";
@@ -17,7 +17,7 @@ const Navbar = () => {
 
   const navItems = [
     {icon:<BiHome size={22} className="text-primary"/>, name:"Home",action: () => navigate("/")},
-    {icon:<CiUser size={22} className="text-primary"/>, name:"My Profile", action: () => navigate("/account")},
+    {icon:<HiOutlineUser size={22} className="text-primary"/>, name:"My Profile", action: () => navigate("/account")},
     {icon:<FiCreditCard size={22} className="text-primary"/>, name:"My Orders", action: () => navigate("/cart")},
     {icon:<HiOutlineLocationMarker size={22} className="text-primary"/>, name:"My Address"},
     {icon:<IoLogOutOutline size={22} className="text-primary"/>, name:"Logout"}
@@ -81,7 +81,7 @@ const Navbar = () => {
             {/* account */}
             <div className="text-text text-[14px]">
               <Link to="/account" className=" md:flex items-center gap-2">
-              <CiUser size={22} className="text-primary" />
+              <HiOutlineUser size={22} className="text-primary" />
               <span className="text-sm hidden md:flex">Account</span>
               </Link>
             </div>
