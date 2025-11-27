@@ -18,7 +18,6 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
   const [containerSize, setContainerSize] = useState({ w: 0, h: 0 });
   const [imageSize, setImageSize] = useState({ w: 0, h: 0 });
 
-  // Read sizes once image loads
   useEffect(() => {
     if (containerRef.current && imgRef.current) {
       setContainerSize({
@@ -33,19 +32,22 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
     }
   }, []);
 
-  // Clamp value within min/max
-  const clamp = (value: number, min: number, max: number) =>
-    Math.max(min, Math.min(value, max));
+  // clamp helper
+  const clamp = (val: number, min: number, max: number) =>
+    Math.max(min, Math.min(val, max));
 
   const onTouchStart = (e: React.TouchEvent<HTMLImageElement>) => {
     if (e.touches.length === 1) {
       const t = e.touches[0];
-      setStartPos({ x: t.pageX - pos.x, y: t.pageY - pos.y });
+      setStartPos({
+        x: t.pageX - pos.x,
+        y: t.pageY - pos.y,
+      });
     }
   };
 
   const onTouchMove = (e: React.TouchEvent<HTMLImageElement>) => {
-    // Pinch to zoom
+    // PINCH ZOOM
     if (e.touches.length === 2) {
       const touches = Array.from(e.touches);
       const t1 = touches[0];
@@ -55,7 +57,7 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
 
       if (lastDistance !== null) {
         let newScale = scale + (dist - lastDistance) * 0.004;
-        newScale = Math.max(1, Math.min(4, newScale));
+        newScale = Math.max(1, Math.min(newScale, 4));
         setScale(newScale);
       }
 
@@ -63,20 +65,22 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
       return;
     }
 
-    // Dragging image
+    // DRAGGING
     if (e.touches.length === 1 && scale > 1) {
       const t = e.touches[0];
+
       let newX = t.pageX - startPos.x;
       let newY = t.pageY - startPos.y;
 
+      // ZOOMED SIZE
       const displayW = imageSize.w * scale;
       const displayH = imageSize.h * scale;
 
-      // Maximum allowed drag before showing background
+      // how far you can drag before background shows
       const maxX = Math.max(0, (displayW - containerSize.w) / 2);
       const maxY = Math.max(0, (displayH - containerSize.h) / 2);
 
-      // Clamp dragging inside boundaries
+      // clamp so image NEVER leaves box
       newX = clamp(newX, -maxX, maxX);
       newY = clamp(newY, -maxY, maxY);
 
@@ -93,27 +97,27 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
       className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
       onClick={onClose}
     >
-      {/* OUTER CONTAINER */}
       <div
         ref={containerRef}
-        className="rounded-md overflow-hidden"
+        className="rounded-md overflow-hidden bg-white"
         style={{
           width: "100%",
-          height: "50%",
+          height: "47%",
           touchAction: "none",
+          position: "relative",
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* INNER IMAGE */}
         <img
           ref={imgRef}
           src={img}
-          alt="zoom"
+          alt=""
           className="w-full h-auto"
           style={{
             transform: `translate(${pos.x}px, ${pos.y}px) scale(${scale})`,
-            touchAction: "none",
+            transformOrigin: "center center",
             transition: "none",
+            touchAction: "none",
           }}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
