@@ -99,7 +99,7 @@ const Blockbuster = () => {
       <div className="flex justify-between items-center px-2 md:px-8 lg:px-20 mt-6">
         <p className=" text-md lg:text-xl font-semibold">Under 299</p>
         <Link
-          to="/view-all/watch"
+          to="/view-all/299store"
           className="flex items-center justify-center gap-x-1 text-[12px] lg:text-sm text-primary"
         >
           View All <FaArrowRight size={12} className="inline-block" />
@@ -138,7 +138,7 @@ const Blockbuster = () => {
               style={{ width: `${cardWidth}px` }}
               onClick={() => {
                 if (!isDragMove.current) {
-                  navigate(`/product/${toSlug(item.name)}`);
+                   navigate(`/product/${toSlug(item.name)}`)
                 }
               }}
             >

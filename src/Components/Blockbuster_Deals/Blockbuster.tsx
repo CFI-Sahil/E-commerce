@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { AllProducts } from "../../AllProducts";
+import { BlockData } from "../Blockbuster_Deals/BlockData";
 import { useNavigate,Link } from "react-router-dom";
 
 const CARD_GAP = 24;
@@ -126,7 +126,7 @@ const Blockbuster = () => {
             msOverflowStyle: "none",
           }}
         >
-          {AllProducts.map((item) => (
+          {BlockData.map((item) => (
             <div
               key={item.id}
               className="shrink-0 transition-transform active:scale-95"

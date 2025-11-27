@@ -16,7 +16,7 @@ const Category = () => {
               <img
                 src={Jewellery}
                 alt=""
-                className=" h-20 md:h-22 -mt-6 object-contain"
+                className=" h-20 md:h-24 -mt-6 object-contain"
               />
             </div>
             <p className="mt-1.5 font-medium">Jewellery</p>
@@ -26,7 +26,7 @@ const Category = () => {
           <Link to="/category/purse">
           <div className="flex flex-col items-center mr-4 sm:mr-6 md:mr-0">
             <div className="bg-secondary w-24 md:w-30 lg:w-32 h-16 md:h-20 rounded-xl flex justify-center shadow">
-              <img src={Purse} alt="" className=" h-24 md:h-26 -mt-10 object-contain" />
+              <img src={Purse} alt="" className=" h-20 md:h-24 -mt-6 object-contain" />
             </div>
             <p className="mt-1.5 font-medium">Purse</p>
           </div>
@@ -38,7 +38,7 @@ const Category = () => {
               <img
                 src={Perfume}
                 alt=""
-                className="h-28 md:h-30 -mt-10 object-contain"
+                className="h-20 md:h-24 -mt-6 object-contain"
               />
             </div>
             <p className="mt-1.5 font-medium">Perfume</p>
@@ -48,7 +48,7 @@ const Category = () => {
           <Link to="/category/watch">
           <div className="flex flex-col items-center mr-6 md:mr-0">
             <div className="bg-secondary w-24 md:w-30 lg:w-32 h-16 md:h-20 rounded-xl flex justify-center shadow">
-              <img src={Watch} alt="" className="h-24 md:h-28 -mt-8 object-contain" />
+              <img src={Watch} alt="" className="h-20 md:h-24 -mt-6 object-contain" />
             </div>
             <p className="mt-1.5 font-medium">Watch</p>
           </div>
@@ -60,7 +60,7 @@ const Category = () => {
               <img
                 src={Store199}
                 alt=""
-                className="h-18 md:h-22 -mt-6 object-contain"
+                className="h-18 md:h-22 -mt-5 md:-mt-6 object-contain"
               />
             </div>
             <p className="mt-1.5 font-medium">299 Store</p>

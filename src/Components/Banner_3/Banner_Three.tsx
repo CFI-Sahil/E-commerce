@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import Banner2 from '../../assets/Banner_2.jpg';
-import BannerMOb2 from '../../assets/Banner_2_Responsive.jpg';
+import Banner5 from '../../assets/Banner_5.jpg';
+import BannerMOb5 from '../../assets/Banner_5_Responsive.jpg';
 
 
 
@@ -16,7 +16,7 @@ const Banner_Three = () => {
         return () => window.removeEventListener('resize', handleSize);
     }, []);
 
-    const banners = mobile? [BannerMOb2]: [Banner2];
+    const banners = mobile? [BannerMOb5]: [Banner5];
 
 
     return (

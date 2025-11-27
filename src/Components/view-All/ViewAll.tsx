@@ -283,7 +283,7 @@ const ViewAll: React.FC = () => {
               {filteredProducts.map((item) => (
                 
                 <div key={item.id} onClick={() => navigate(`/product/${toSlug(item.name)}`)} className="">
-                  <div className="w-full h-[260px] md:h-[290px] lg:h-[260px] xl:h-[300px] rounded-md shadow flex flex-col pt-2 pb-3.5 px-1.5 border border-border bg-white">
+                  <div className="w-full h-[260px] md:h-[290px] lg:h-[260px] xl:h-[300px] rounded-md shadow flex flex-col pt-2 pb-3.5 px-1.5 border border-border bg-white cursor-pointer">
                     <img
                       src={item.image}
                       alt={item.name}

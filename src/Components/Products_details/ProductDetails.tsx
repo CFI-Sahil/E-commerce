@@ -23,9 +23,9 @@ function ProductDetails() {
   );
   if (!product) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <img src={noProdFound} alt="" className="w-64 md:h-auto md:w-auto" />
-      </div>
+      <><Navbar /><div className="flex justify-center items-center h-screen">
+        <img src={noProdFound} alt="" className="w-36 md:h-auto md:w-auto" />
+      </div></>
     );
   }
   const [qty, setQty] = useState(1);
