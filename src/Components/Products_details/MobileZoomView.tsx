@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 interface MobileZoomViewProps {
   img: string;
@@ -12,13 +12,33 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
   const [scale, setScale] = useState(1);
   const [lastDistance, setLastDistance] = useState<number | null>(null);
 
-  // dragging
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [startPos, setStartPos] = useState({ x: 0, y: 0 });
 
+  const [containerSize, setContainerSize] = useState({ w: 0, h: 0 });
+  const [imageSize, setImageSize] = useState({ w: 0, h: 0 });
+
+  // Read sizes once image loads
+  useEffect(() => {
+    if (containerRef.current && imgRef.current) {
+      setContainerSize({
+        w: containerRef.current.offsetWidth,
+        h: containerRef.current.offsetHeight,
+      });
+
+      setImageSize({
+        w: imgRef.current.offsetWidth,
+        h: imgRef.current.offsetHeight,
+      });
+    }
+  }, []);
+
+  // Clamp value within min/max
+  const clamp = (value: number, min: number, max: number) =>
+    Math.max(min, Math.min(value, max));
+
   const onTouchStart = (e: React.TouchEvent<HTMLImageElement>) => {
     if (e.touches.length === 1) {
-      // Start dragging
       const t = e.touches[0];
       setStartPos({ x: t.pageX - pos.x, y: t.pageY - pos.y });
     }
@@ -43,14 +63,24 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
       return;
     }
 
-    // dragging
+    // Dragging image
     if (e.touches.length === 1 && scale > 1) {
       const t = e.touches[0];
+      let newX = t.pageX - startPos.x;
+      let newY = t.pageY - startPos.y;
 
-      setPos({
-        x: t.pageX - startPos.x,
-        y: t.pageY - startPos.y,
-      });
+      const displayW = imageSize.w * scale;
+      const displayH = imageSize.h * scale;
+
+      // Maximum allowed drag before showing background
+      const maxX = Math.max(0, (displayW - containerSize.w) / 2);
+      const maxY = Math.max(0, (displayH - containerSize.h) / 2);
+
+      // Clamp dragging inside boundaries
+      newX = clamp(newX, -maxX, maxX);
+      newY = clamp(newY, -maxY, maxY);
+
+      setPos({ x: newX, y: newY });
     }
   };
 
@@ -60,19 +90,19 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
 
   return (
     <div
-      className="fixed inset-0 bg-black/40 backdrop-blur-sm z-9999 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
       onClick={onClose}
     >
       {/* OUTER CONTAINER */}
       <div
         ref={containerRef}
-        className="bg-whit rounded-md"
+        className="rounded-md overflow-hidden"
         style={{
           width: "100%",
           height: "50%",
-          touchAction: "none", // Needed
+          touchAction: "none",
         }}
-        onClick={(e) => e.stopPropagation()} // prevent closing when clicking container
+        onClick={(e) => e.stopPropagation()}
       >
         {/* INNER IMAGE */}
         <img
@@ -83,7 +113,7 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
           style={{
             transform: `translate(${pos.x}px, ${pos.y}px) scale(${scale})`,
             touchAction: "none",
-            transition: "none", // remove smoothness
+            transition: "none",
           }}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
