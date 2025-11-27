@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <>
       <div className="mt-16 font-primary overflow-hidden relative">
-        <div className="bg-primary w-full h-[65vh] max-h-[70vh] md:h-96 lg:h-72">
+        <div className="bg-primary w-full h-[70vh] md:h-96 lg:h-72">
           <div className="py-10 px-5 md:px-10 xl:px-20">
             <div className="flex flex-col lg:flex-row md:items-center lg:items-start lg:justify-start md:gap-6 lg:gap-12">
               <img src={Logo} alt="Logo" className="w-40 xl:w-50 relative mb-4 md:mb-0" />

@@ -42,7 +42,7 @@ const Navbar = () => {
         {/* navigation bar */}
         <div>
             {navItems.map((item, index) => (
-                <div key={index}  onClick={item.action} className="flex flex-col ">
+                <div key={index}  onClick={item.action} className="flex flex-col select-none">
                     <div className="flex items-center gap-4 p-4 hover:bg-primary/40 transition-colors duration-300 cursor-pointer">
                     {item.icon}
                     <span className="text-text">{item.name}</span>
@@ -70,7 +70,7 @@ const Navbar = () => {
           )}
 
           {/* logo */}
-          <div className="logo -ml-48 md:ml-0">
+          <div className="logo -ml-36 md:ml-0">
             <Link to="/">
             <img src={Logo} className="h-10 lg:h-12 object-contain" />
             </Link>
@@ -80,9 +80,9 @@ const Navbar = () => {
           <div className="sig-cart flex justify-center items-center gap-4 lg:gap-8">
             {/* account */}
             <div className="text-text text-[14px]">
-              <Link to="/account" className="hidden md:flex items-center gap-2">
+              <Link to="/account" className=" md:flex items-center gap-2">
               <CiUser size={22} className="text-primary" />
-              <span className="text-sm">Account</span>
+              <span className="text-sm hidden md:flex">Account</span>
               </Link>
             </div>
 

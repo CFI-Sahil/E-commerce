@@ -39,7 +39,7 @@ const Signin = () => {
               className="w-[16vh] h-[20vh] rounded-md mb-5"
             />
           </div> */}
-        <div className="flex flex-col md:flex-row w-[46vh] lg:w-[110vh] h-[47dvh] md:h-auto overflow-hidden shadow-lg bg-white rounded-2xl p-9.5 md:p-0">
+        <div className="flex flex-col md:flex-row w-[46vh] lg:w-[110vh] max-h-[60dvh] md:h-auto overflow-hidden shadow-lg bg-white rounded-2xl p-9.5 md:p-0">
 
           {/* image section for desktop */}
           <div className="md:flex flex-col md:flex-row hidden">
