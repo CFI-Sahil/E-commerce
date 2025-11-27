@@ -32,7 +32,6 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
     }
   }, []);
 
-  // clamp helper
   const clamp = (val: number, min: number, max: number) =>
     Math.max(min, Math.min(val, max));
 
@@ -47,12 +46,8 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
   };
 
   const onTouchMove = (e: React.TouchEvent<HTMLImageElement>) => {
-    // PINCH ZOOM
     if (e.touches.length === 2) {
-      const touches = Array.from(e.touches);
-      const t1 = touches[0];
-      const t2 = touches[1];
-
+      const [t1, t2] = Array.from(e.touches);
       const dist = Math.hypot(t2.pageX - t1.pageX, t2.pageY - t1.pageY);
 
       if (lastDistance !== null) {
@@ -65,22 +60,18 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
       return;
     }
 
-    // DRAGGING
     if (e.touches.length === 1 && scale > 1) {
       const t = e.touches[0];
 
       let newX = t.pageX - startPos.x;
       let newY = t.pageY - startPos.y;
 
-      // ZOOMED SIZE
       const displayW = imageSize.w * scale;
       const displayH = imageSize.h * scale;
 
-      // how far you can drag before background shows
       const maxX = Math.max(0, (displayW - containerSize.w) / 2);
       const maxY = Math.max(0, (displayH - containerSize.h) / 2);
 
-      // clamp so image NEVER leaves box
       newX = clamp(newX, -maxX, maxX);
       newY = clamp(newY, -maxY, maxY);
 
@@ -94,7 +85,7 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
 
   return (
     <div
-      className="fixed inset-0 bg-black/40 backdrop-blur-sm z-9999 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
       onClick={onClose}
     >
       <div
@@ -102,7 +93,7 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
         className="rounded-md overflow-hidden bg-white"
         style={{
           width: "100%",
-          height: "45%",
+          height: "46%",
           touchAction: "none",
           position: "relative",
         }}
@@ -112,7 +103,7 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
           ref={imgRef}
           src={img}
           alt=""
-          className="w-full h-auto"
+          className="w-full h-full object-cover"   // ← FIXED (always covers container)
           style={{
             transform: `translate(${pos.x}px, ${pos.y}px) scale(${scale})`,
             transformOrigin: "center center",
