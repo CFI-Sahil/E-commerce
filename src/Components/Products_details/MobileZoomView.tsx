@@ -66,7 +66,7 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
       {/* OUTER CONTAINER */}
       <div
         ref={containerRef}
-        className="bg-whit rounded-md overflow-hidden!"
+        className="bg-whit rounded-md"
         style={{
           width: "100%",
           height: "50%",
