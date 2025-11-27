@@ -94,7 +94,7 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
 
   return (
     <div
-      className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/40 backdrop-blur-sm z-9999 flex items-center justify-center p-4"
       onClick={onClose}
     >
       <div
@@ -102,7 +102,7 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
         className="rounded-md overflow-hidden bg-white"
         style={{
           width: "100%",
-          height: "47%",
+          height: "46%",
           touchAction: "none",
           position: "relative",
         }}
