@@ -60,16 +60,16 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
 
   return (
     <div
-      className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/40 backdrop-blur-sm z-9999 flex items-center justify-center p-4"
       onClick={onClose}
     >
       {/* OUTER CONTAINER */}
       <div
         ref={containerRef}
-        className="bg-white border-4 border-white rounded-xl overflow-hidden"
+        className="bg-whit rounded-md overflow-hidden!"
         style={{
-          width: "90%",
-          height: "42%",
+          width: "100%",
+          height: "50%",
           touchAction: "none", // Needed
         }}
         onClick={(e) => e.stopPropagation()} // prevent closing when clicking container
