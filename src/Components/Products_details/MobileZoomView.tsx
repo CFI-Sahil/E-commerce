@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useRef, useState, useEffect } from "react";
 
 interface MobileZoomViewProps {
@@ -17,6 +18,8 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
 
   const [containerSize, setContainerSize] = useState({ w: 0, h: 0 });
   const [imageSize, setImageSize] = useState({ w: 0, h: 0 });
+
+  const lastTap = useRef(0);
 
   useEffect(() => {
     if (containerRef.current && imgRef.current) {
@@ -46,8 +49,12 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
   };
 
   const onTouchMove = (e: React.TouchEvent<HTMLImageElement>) => {
+    // PINCH ZOOM
     if (e.touches.length === 2) {
-      const [t1, t2] = Array.from(e.touches);
+      const touches = Array.from(e.touches);
+      const t1 = touches[0];
+      const t2 = touches[1];
+
       const dist = Math.hypot(t2.pageX - t1.pageX, t2.pageY - t1.pageY);
 
       if (lastDistance !== null) {
@@ -60,9 +67,9 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
       return;
     }
 
+    // DRAG WHILE ZOOMED
     if (e.touches.length === 1 && scale > 1) {
       const t = e.touches[0];
-
       let newX = t.pageX - startPos.x;
       let newY = t.pageY - startPos.y;
 
@@ -83,9 +90,29 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
     setLastDistance(null);
   };
 
+  // DOUBLE TAP ZOOM
+  const onDoubleTap = (_e: unknown) => {
+    const now = Date.now();
+    const timeSince = now - lastTap.current;
+
+    if (timeSince < 250) {
+      // DOUBLE TAP TRIGGERED
+      if (scale > 1) {
+        // zoom-out
+        setScale(1);
+        setPos({ x: 0, y: 0 });
+      } else {
+        // zoom-in
+        setScale(2);
+      }
+    }
+
+    lastTap.current = now;
+  };
+
   return (
     <div
-      className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/40 backdrop-blur-sm z-9999 flex items-center justify-center p-4"
       onClick={onClose}
     >
       <div
@@ -103,7 +130,7 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
           ref={imgRef}
           src={img}
           alt=""
-          className="w-full h-full object-cover"   // ← FIXED (always covers container)
+          className="w-full h-full object-cover"
           style={{
             transform: `translate(${pos.x}px, ${pos.y}px) scale(${scale})`,
             transformOrigin: "center center",
@@ -112,7 +139,10 @@ export default function MobileZoomView({ img, onClose }: MobileZoomViewProps) {
           }}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
+          onTouchEnd={(e) => {
+            onTouchEnd();
+            onDoubleTap(e);
+          }}
         />
       </div>
     </div>
